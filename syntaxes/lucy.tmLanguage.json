@@ -9,6 +9,9 @@
 			"include": "#strings"
 		},
 		{
+			"include": "#numbers"
+		},
+		{
 			"include": "#blocks"
 		},
 		{
@@ -44,6 +47,19 @@
 				},
 				{
 					"include": "#qstring-double"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.hex.lucy",
+					"match": "\\b([0-9]+m?s?)\\b",
+					"captures": {
+						"1": {
+							"name": "storage.type.numeric.bigint.lucy"
+						}
+					}
 				}
 			]
 		},
@@ -162,13 +178,13 @@
 			"patterns": [
 				{
 					"name": "meta.function.call.lucy",
-					"match": "^\\s+(delay) ([0-9]+[ms]+)\\s+(=>)",
+					"match": "^\\s+(delay) ([0-9]+[ms]*)\\s+(=>)",
 					"captures": {
 						"1": {
 							"name": "entity.name.function.lucy"
 						},
 						"2": {
-							"name": "variable.other.lucy"
+							"name": "storage.type.numeric.bigint.lucy"
 						},
 						"3": {
 							"name": "storage.type.function.lucy"
