@@ -1,0 +1,21 @@
+import { thing } from './other.js'
+
+guard stopIt = thing
+
+state foo {
+  one => two
+}
+
+final state two {
+  state first {
+    delay 1s => second
+  }
+
+  state second {}
+
+  machine inner {
+    state another {
+      something => assign wilbur => next
+    }
+  }
+}
