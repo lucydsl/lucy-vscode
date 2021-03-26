@@ -2,7 +2,7 @@
     "name": "lucylang",
     "displayName": "Lucy Language",
     "description": "Syntax highlighting for lucy",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "engines": {
         "vscode": "^1.36.0"
     },
@@ -15,12 +15,19 @@
     },
     "publisher": "lucylang2",
     "contributes": {
-        "languages": [{
-            "id": "lucy",
-            "aliases": ["Lucy", "lucy"],
-            "extensions": [".lucy"],
-            "configuration": "./language-configuration.json"
-        }],
+        "languages": [
+            {
+                "id": "lucy",
+                "aliases": [
+                    "Lucy",
+                    "lucy"
+                ],
+                "extensions": [
+                    ".lucy"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
         "grammars": [
             {
                 "language": "lucy",
