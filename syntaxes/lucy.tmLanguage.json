@@ -30,6 +30,9 @@
 			"include": "#machine"
 		},
 		{
+			"include": "#use-declaration"
+		},
+		{
 			"include": "#import-declaration"
 		}
 	],
@@ -392,6 +395,24 @@
 					"name": "punctuation.definition.block.lucy"
 				}
 			}
+		},
+		"use-declaration": {
+			"name": "meta.use.lucy",
+			"begin": "\\b(use)\\s*",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.control.import.lucy"
+				}
+			},
+			"end": "(?=;|$|^)",
+			"patterns": [
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#import-block"
+				}
+			]
 		},
 		"import-declaration": {
 			"name": "meta.import.lucy",

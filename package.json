@@ -1,5 +1,5 @@
 {
-    "name": "lucy-language",
+    "name": "@lucy/vscode",
     "displayName": "Lucy Language",
     "description": "Syntax highlighting for lucy",
     "version": "0.0.5",
