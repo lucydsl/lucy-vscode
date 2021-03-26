@@ -176,12 +176,12 @@
 				}
 			]
 		},
-		"call-event": {
-			"name": "meta.function.call.lucy",
+		"inline-delay": {
+			"name": "meta.delay.lucy",
 			"patterns": [
 				{
 					"name": "meta.function.call.lucy",
-					"match": "^\\s+(delay) ([0-9]+[ms]*)\\s+(=>)",
+					"match": "^\\s+(delay) ([0-9]+(ms|s|m)*)\\s+(=>)",
 					"captures": {
 						"1": {
 							"name": "entity.name.function.lucy"
@@ -193,6 +193,26 @@
 							"name": "storage.type.function.lucy"
 						}
 					}
+				},
+				{
+					"name": "meta.function.call.lucy",
+					"match": "^\\s+(delay) [a-zA-Z]+\\s+(=>)",
+					"captures": {
+						"1": {
+							"name": "entity.name.function.lucy"
+						},
+						"2": {
+							"name": "storage.type.function.lucy"
+						}
+					}
+				}
+			]
+		},
+		"call-event": {
+			"name": "meta.function.call.lucy",
+			"patterns": [
+				{
+					"include": "#inline-delay"
 				},
 				{
 					"name": "meta.function.call.lucy",
