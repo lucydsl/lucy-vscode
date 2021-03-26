@@ -1,5 +1,5 @@
 {
-    "name": "@lucy/vscode",
+    "name": "lucylang",
     "displayName": "Lucy Language",
     "description": "Syntax highlighting for lucy",
     "version": "0.0.5",
@@ -9,7 +9,11 @@
     "categories": [
         "Programming Languages"
     ],
-    "publisher": "matthewp",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/matthewp/lucy-vscode.git"
+    },
+    "publisher": "lucylang2",
     "contributes": {
         "languages": [{
             "id": "lucy",
