@@ -181,28 +181,22 @@
 			"patterns": [
 				{
 					"name": "meta.function.call.lucy",
-					"match": "^\\s+(delay) ([0-9]+(ms|s|m)*)\\s+(=>)",
+					"match": "^\\s+(delay)\\(([0-9]+(ms|s|m)*)\\)\\s+=>",
 					"captures": {
 						"1": {
 							"name": "entity.name.function.lucy"
 						},
 						"2": {
 							"name": "storage.type.numeric.bigint.lucy"
-						},
-						"3": {
-							"name": "storage.type.function.lucy"
 						}
 					}
 				},
 				{
 					"name": "meta.function.call.lucy",
-					"match": "^\\s+(delay) [a-zA-Z]+\\s+(=>)",
+					"match": "^\\s+(delay)\\([a-zA-Z]+\\)\\s+=>",
 					"captures": {
 						"1": {
 							"name": "entity.name.function.lucy"
-						},
-						"2": {
-							"name": "storage.type.function.lucy"
 						}
 					}
 				}
@@ -216,63 +210,47 @@
 				},
 				{
 					"name": "meta.function.call.lucy",
-					"match": "^\\s+(\\w+)\\s+(=>)\\s+(assign|action|guard)\\s+([A-Za-z]+)",
+					"match": "^\\s+(\\w+)\\s+(=>)",
 					"captures": {
 						"1": {
 							"name": "entity.name.function.lucy"
 						},
 						"2": {
 							"name": "storage.type.function.lucy"
-						},
-						"3": {
-							"name": "entity.name.function.lucy"
-						},
-						"4": {
-							"name": "variable.other.lucy"
-						}
-					}
-				},
-				{
-					"name": "meta.function.call.lucy",
-					"match": "^\\s+(\\w+)\\s+(=>)\\s+([A-Za-z]+)",
-					"captures": {
-						"1": {
-							"name": "entity.name.function.lucy"
-						},
-						"2": {
-							"name": "storage.type.function.lucy"
-						},
-						"3": {
-							"name": "variable.other.lucy"
 						}
 					}
 				},
 				{
 					"name": "meta.function.arg.lucy",
-					"match": "(=>)\\s+(assign|action|guard)\\s+([A-Za-z]+)",
-					"captures": {
-						"1": {
-							"name": "storage.type.function.lucy"
+					"patterns": [
+						{
+							"name": "meta.function.arg.lucy",
+							"match": "(=>)\\s+(action|assign|guard)\\(([A-Za-z]+)\\)",
+							"captures": {
+								"1": {
+									"name": "storage.type.function.lucy"
+								},
+								"2": {
+									"name": "entity.name.function.lucy"
+								},
+								"3": {
+									"name": "variable.other.lucy"
+								}
+							}
 						},
-						"2": {
-							"name": "entity.name.function.lucy"
-						},
-						"3": {
-							"name": "variable.other.lucy"
+						{
+							"name": "meta.function.arg.lucy",
+							"match": "(=>)\\s+([A-Za-z]+)",
+							"captures": {
+								"1": {
+									"name": "storage.type.function.lucy"
+								},
+								"2": {
+									"name": "variable.other.lucy"
+								}
+							}
 						}
-					}
-				},
-				{
-					"name": "meta.function.arg.lucy",
-					"match": "(=>)\\s+([A-Za-z]+)",
-					"captures": {
-						"1": {
-							"name": "storage.type.function.lucy"
-						},
-						"2": {
-							"name": "variable.other.lucy"
-						}
-					}
+					]
 				},
 				{
 					"name": "meta.function.arrow-alone.lucy",
@@ -290,7 +268,7 @@
 			"patterns": [
 				{
 					"name": "meta.variable.lucy",
-					"match": "(context|var|action|guard)\\s+([A-Za-z]+)",
+					"match": "(context|var|action|guard)\\s+([A-Za-z]+)\\s*=",
 					"captures": {
 						"1": {
 							"name": "storage.type.lucy"
@@ -326,7 +304,7 @@
 				},
 				{
 					"name": "meta.variable.lucy",
-					"match": "(context|var|action|guard)",
+					"match": "(context|var)",
 					"captures": {
 						"1": {
 							"name": "storage.type.lucy"
@@ -335,7 +313,7 @@
 				},
 				{
 					"name": "meta.variable.lucy",
-					"match": "(assign)",
+					"match": "(assign|action)",
 					"captures": {
 						"1": {
 							"name": "entity.name.function.lucy"
