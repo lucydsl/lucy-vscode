@@ -2,7 +2,7 @@
     "name": "lucylang",
     "displayName": "Lucy Language",
     "description": "Syntax highlighting for lucy",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "engines": {
         "vscode": "^1.36.0"
     },
@@ -38,10 +38,10 @@
                 "scopeName": "markdown.lucy.codeblock",
                 "path": "./syntaxes/codeblock.json",
                 "injectTo": [
-                  "text.html.markdown"
+                    "text.html.markdown"
                 ],
                 "embeddedLanguages": {
-                  "meta.embedded.block.lucy": "lucy"
+                    "meta.embedded.block.lucy": "lucy"
                 }
             },
             {
