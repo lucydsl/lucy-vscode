@@ -35,6 +35,16 @@
                 "path": "./syntaxes/lucy.tmLanguage.json"
             },
             {
+                "scopeName": "markdown.lucy.codeblock",
+                "path": "./syntaxes/codeblock.json",
+                "injectTo": [
+                  "text.html.markdown"
+                ],
+                "embeddedLanguages": {
+                  "meta.embedded.block.lucy": "lucy"
+                }
+            },
+            {
                 "injectTo": [
                     "source.js",
                     "source.js.jsx",
