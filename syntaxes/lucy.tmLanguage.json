@@ -18,6 +18,9 @@
 			"include": "#call-event"
 		},
 		{
+			"include": "#call-expression"
+		},
+		{
 			"include": "#variables"
 		},
 		{
@@ -221,38 +224,6 @@
 					}
 				},
 				{
-					"name": "meta.function.arg.lucy",
-					"patterns": [
-						{
-							"name": "meta.function.arg.lucy",
-							"match": "(=>)\\s+(action|assign|guard)\\(([A-Za-z]+)\\)",
-							"captures": {
-								"1": {
-									"name": "storage.type.function.lucy"
-								},
-								"2": {
-									"name": "entity.name.function.lucy"
-								},
-								"3": {
-									"name": "variable.other.lucy"
-								}
-							}
-						},
-						{
-							"name": "meta.function.arg.lucy",
-							"match": "(=>)\\s+([A-Za-z]+)",
-							"captures": {
-								"1": {
-									"name": "storage.type.function.lucy"
-								},
-								"2": {
-									"name": "variable.other.lucy"
-								}
-							}
-						}
-					]
-				},
-				{
 					"name": "meta.function.arrow-alone.lucy",
 					"match": "(=>)",
 					"captures": {
@@ -260,6 +231,52 @@
 							"name": "storage.type.function.lucy"
 						}
 					}
+				}
+			]
+		},
+		"call-expression": {
+			"name": "meta.function.call.lucy",
+			
+			"patterns": [
+				{
+					"begin": "\\b(action|guard|assign|spawn|send)(?=\\()",
+					"end": "(?<=\\))",
+					"beginCaptures": {
+						"1": {
+							"name": "entity.name.function.lucy"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#paren-expression"
+						}
+					]
+				}
+			]
+		},
+		"expression": {
+			"patterns": [
+				{
+					"include": "#call-expression"
+				}
+			]
+		},
+		"paren-expression": {
+			"begin": "\\(",
+			"beginCaptures": {
+				"0": {
+					"name": "meta.brace.round.lucy"
+				}
+			},
+			"end": "\\)",
+			"endCaptures": {
+				"0": {
+					"name": "meta.brace.round.lucy"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#expression"
 				}
 			]
 		},
@@ -272,18 +289,6 @@
 					"captures": {
 						"1": {
 							"name": "storage.type.lucy"
-						},
-						"2": {
-							"name": "variable.other.lucy"
-						}
-					}
-				},
-				{
-					"name": "meta.variable.lucy",
-					"match": "(assign)\\s+([A-Za-z]+)",
-					"captures": {
-						"1": {
-							"name": "entity.name.function.lucy"
 						},
 						"2": {
 							"name": "variable.other.lucy"
@@ -308,15 +313,6 @@
 					"captures": {
 						"1": {
 							"name": "storage.type.lucy"
-						}
-					}
-				},
-				{
-					"name": "meta.variable.lucy",
-					"match": "(assign|action)",
-					"captures": {
-						"1": {
-							"name": "entity.name.function.lucy"
 						}
 					}
 				},
