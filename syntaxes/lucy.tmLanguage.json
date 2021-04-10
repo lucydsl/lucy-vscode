@@ -37,6 +37,9 @@
 		},
 		{
 			"include": "#import-declaration"
+		},
+		{
+			"include": "#special-events"
 		}
 	],
 	"repository": {
@@ -239,7 +242,7 @@
 			
 			"patterns": [
 				{
-					"begin": "\\b(action|guard|assign|spawn|send)(?=\\()",
+					"begin": "\\b(action|guard|assign|spawn|send|on)(?=\\()",
 					"end": "(?<=\\))",
 					"beginCaptures": {
 						"1": {
@@ -454,6 +457,10 @@
 					"include": "#import-block"
 				}
 			]
+		},
+		"special-events": {
+			"name": "variable.language.lucy",
+			"match": "(@entry|@exit)"
 		}
 	},
 	"scopeName": "source.lucy"
