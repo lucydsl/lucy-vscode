@@ -2,7 +2,7 @@
     "name": "lucylang",
     "displayName": "Lucy Language",
     "description": "Syntax highlighting for lucy",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "engines": {
         "vscode": "^1.36.0"
     },
