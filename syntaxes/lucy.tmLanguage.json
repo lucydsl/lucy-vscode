@@ -40,6 +40,9 @@
 		},
 		{
 			"include": "#special-events"
+		},
+		{
+			"include": "#single-line-comment-consuming-line-ending"
 		}
 	],
 	"repository": {

@@ -1,3 +1,3 @@
-# lucy-language
+# Lucy Language
 
-This is about the lucy extension.
+This is the VSCode extension for the [Lucy](https://lucylang.org/) FSM DSL.
