@@ -42,7 +42,7 @@
 			"include": "#special-events"
 		},
 		{
-			"include": "#single-line-comment-consuming-line-ending"
+			"include": "#comment"
 		}
 	],
 	"repository": {
@@ -335,6 +335,27 @@
 		},
 		"comment": {
 			"patterns": [
+				{
+					"name": "comment.block.lucy",
+					"begin": "(/\\*)(?:\\s*((@)internal)(?=\\s|(\\*/)))?",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.definition.comment.lucy"
+						},
+						"2": {
+							"name": "storage.type.internaldeclaration.lucy"
+						},
+						"3": {
+							"name": "punctuation.decorator.internaldeclaration.lucy"
+						}
+					},
+					"end": "\\*/",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.lucy"
+						}
+					}
+				},
 				{
 					"begin": "(^[ \\t]+)?((//)(?:\\s*((@)internal)(?=\\s|$))?)",
 					"beginCaptures": {
