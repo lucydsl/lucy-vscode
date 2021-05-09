@@ -43,6 +43,9 @@
 		},
 		{
 			"include": "#comment"
+		},
+		{
+			"include": "#symbols"
 		}
 	],
 	"repository": {
@@ -190,24 +193,21 @@
 			"patterns": [
 				{
 					"name": "meta.function.call.lucy",
-					"match": "^\\s+(delay)\\(([0-9]+(ms|s|m)*)\\)\\s+=>",
-					"captures": {
+					"begin": "^\\s+(delay)(?=\\()",
+					"end": "(?<=\\))",
+					"beginCaptures": {
 						"1": {
 							"name": "entity.name.function.lucy"
+						}
+					},
+					"patterns": [
+						{
+							"include": "#numbers"
 						},
-						"2": {
-							"name": "storage.type.numeric.bigint.lucy"
+						{
+							"include": "#symbols"
 						}
-					}
-				},
-				{
-					"name": "meta.function.call.lucy",
-					"match": "^\\s+(delay)\\([a-zA-Z]+\\)\\s+=>",
-					"captures": {
-						"1": {
-							"name": "entity.name.function.lucy"
-						}
-					}
+					]
 				}
 			]
 		},
@@ -264,6 +264,9 @@
 			"patterns": [
 				{
 					"include": "#call-expression"
+				},
+				{
+					"include": "#symbols"
 				}
 			]
 		},
@@ -332,6 +335,16 @@
 					}
 				}
 			]
+		},
+		"symbols": {
+			"name": "constant.other.symbol.hashkey.lucy",
+			"comment": "Symbols",
+			"match": "(?<!:)(:)(?>[a-zA-Z_]\\w*(?>[?!]|=(?![>=]))?|===?|>[>=]?|<=>|<[<=]?|[%&`/\\|]|\\*\\*?|=?~|[-+]@?|\\[\\]=?|(@@?|\\$)[a-zA-Z_]\\w*)",
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.constant.lucy"
+				}
+			}
 		},
 		"comment": {
 			"patterns": [
