@@ -1,3 +1,3 @@
 # Lucy Language
 
-This is the VSCode extension for the [Lucy](https://lucylang.org/) FSM DSL.
+This is the VSCode extension for the [Lucy](https://lucy.spooky.click/) FSM DSL.
