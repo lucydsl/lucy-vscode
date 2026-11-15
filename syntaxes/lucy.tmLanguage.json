@@ -6,6 +6,9 @@
 			"include": "#keywords"
 		},
 		{
+			"include": "#event-declaration"
+		},
+		{
 			"include": "#strings"
 		},
 		{
@@ -54,6 +57,28 @@
 				"name": "storage.modifier.lucy",
 				"match": "\\b(initial|final)\\b"
 			}]
+		},
+		"event-declaration": {
+			"comment": "`event name` or `event name(Type)`. An event called event, `event => idle`, is a transition.",
+			"name": "meta.event.declaration.lucy",
+			"match": "^\\s*(event)\\s+([A-Za-z_]\\w*)(?:\\s*(\\()\\s*([A-Za-z_]\\w*)\\s*(\\)))?",
+			"captures": {
+				"1": {
+					"name": "storage.type.lucy"
+				},
+				"2": {
+					"name": "entity.name.function.lucy"
+				},
+				"3": {
+					"name": "meta.brace.round.lucy"
+				},
+				"4": {
+					"name": "entity.name.type.lucy"
+				},
+				"5": {
+					"name": "meta.brace.round.lucy"
+				}
+			}
 		},
 		"strings": {
 			"patterns": [

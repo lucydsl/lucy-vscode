@@ -1,0 +1,12 @@
+use './types' { User }
+
+machine session {
+  event login(User)
+  event rename( string )
+  event logout
+
+  initial state idle {
+    event => idle
+    login => idle
+  }
+}
