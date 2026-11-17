@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+  # Publishes to the VS Code Marketplace with trusted publishing: the
+  # lucylang2 publisher trusts this workflow file in this repository (a
+  # policy on the publisher's page at marketplace.visualstudio.com/manage),
+  # so there is no token to keep. That needs the id-token permission.
+  marketplace:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+    - uses: actions/checkout@v7
+    - uses: actions/setup-node@v7
+      with:
+        node-version: 24.x
+    - name: Check the tag is the package's version
+      run: |
+        version="$(jq -r .version package.json)"
+        if [ "$GITHUB_REF_NAME" != "v$version" ]; then
+          echo "The tag is $GITHUB_REF_NAME, but package.json says $version" >&2
+          exit 1
+        fi
+    - name: Publish
+      run: npx --yes @vscode/vsce publish --oidc

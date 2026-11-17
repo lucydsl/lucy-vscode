@@ -2,7 +2,7 @@
     "name": "lucylang",
     "displayName": "Lucy Language",
     "description": "Syntax highlighting for lucy",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "engines": {
         "vscode": "^1.36.0"
     },
@@ -11,7 +11,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/matthewp/lucy-vscode.git"
+        "url": "git+https://github.com/lucydsl/lucy-vscode.git"
     },
     "publisher": "lucylang2",
     "contributes": {
