@@ -8,3 +8,4 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Initial release
 - Highlight event declarations: `event name` and `event name(Type)`.
+- Highlight action, guard, context and invoke names that have digits or underscores.
