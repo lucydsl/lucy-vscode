@@ -4,6 +4,10 @@ All notable changes to the "lucy-language" extension will be documented in this 
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.3.1
+
+- Highlight the data of a send: `send(parent, removed, self)`.
+
 ## 0.3.0
 
 - Highlight input declarations: `input name` and `input name(Type)`.
