@@ -4,6 +4,11 @@ All notable changes to the "lucy-language" extension will be documented in this 
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.3.0
+
+- Highlight input declarations: `input name` and `input name(Type)`.
+- Highlight the values in a spawn's block: `event.data`, `context.key`, `self` and `parent`.
+
 ## 0.2.0
 
 - Highlight event declarations: `event name` and `event name(Type)`.

@@ -9,6 +9,12 @@
 			"include": "#event-declaration"
 		},
 		{
+			"include": "#input-declaration"
+		},
+		{
+			"include": "#spawn-values"
+		},
+		{
 			"include": "#strings"
 		},
 		{
@@ -79,6 +85,72 @@
 					"name": "meta.brace.round.lucy"
 				}
 			}
+		},
+		"input-declaration": {
+			"comment": "`input name` or `input name(Type)`. An event called input, `input => idle`, is a transition.",
+			"name": "meta.input.declaration.lucy",
+			"match": "^\\s*(input)\\s+([A-Za-z_]\\w*)(?:\\s*(\\()\\s*([A-Za-z_]\\w*)\\s*(\\)))?(?=\\s*(?://.*)?$)",
+			"captures": {
+				"1": {
+					"name": "storage.type.lucy"
+				},
+				"2": {
+					"name": "variable.other.property.lucy"
+				},
+				"3": {
+					"name": "meta.brace.round.lucy"
+				},
+				"4": {
+					"name": "entity.name.type.lucy"
+				},
+				"5": {
+					"name": "meta.brace.round.lucy"
+				}
+			}
+		},
+		"spawn-values": {
+			"comment": "The values in a spawn's block, `name = value`: event.data, context.key, self and parent. A state or an event called self or parent is neither.",
+			"patterns": [
+				{
+					"match": "\\b(event)(\\.)(data)\\b",
+					"captures": {
+						"1": {
+							"name": "variable.language.lucy"
+						},
+						"2": {
+							"name": "punctuation.accessor.lucy"
+						},
+						"3": {
+							"name": "variable.other.property.lucy"
+						}
+					}
+				},
+				{
+					"match": "\\b(context)(\\.)([A-Za-z_]\\w*)",
+					"captures": {
+						"1": {
+							"name": "variable.language.lucy"
+						},
+						"2": {
+							"name": "punctuation.accessor.lucy"
+						},
+						"3": {
+							"name": "variable.other.property.lucy"
+						}
+					}
+				},
+				{
+					"match": "(=)\\s*(self|parent)\\b",
+					"captures": {
+						"1": {
+							"name": "keyword.operator.assignment.lucy"
+						},
+						"2": {
+							"name": "variable.language.lucy"
+						}
+					}
+				}
+			]
 		},
 		"strings": {
 			"patterns": [
@@ -292,6 +364,23 @@
 				},
 				{
 					"include": "#symbols"
+				},
+				{
+					"include": "#comment"
+				},
+				{
+					"comment": "The parent in send(parent, event).",
+					"match": "\\b(parent)(?=\\s*,)",
+					"name": "variable.language.lucy"
+				},
+				{
+					"include": "#spawn-values"
+				},
+				{
+					"include": "#blocks"
+				},
+				{
+					"include": "#assignment"
 				}
 			]
 		},
