@@ -1,0 +1,32 @@
+use './types' { Storage }
+
+machine todoItem {
+  input title(string)
+  input storage( Storage )
+  input id // whatever makeId gives
+
+  initial state active {
+    input => active
+    remove => removed
+  }
+
+  final state removed {
+    @entry => send(parent, removedTodo)
+  }
+}
+
+machine todoList {
+  initial state ready {
+    add => assign(todo, spawn(todoItem) {
+      title = event.data
+      storage = context.storage
+      list = self
+      owner = parent
+      id = makeId
+      label = :label
+    }) => ready
+    self => parent
+  }
+
+  state parent {}
+}
