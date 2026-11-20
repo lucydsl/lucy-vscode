@@ -30,3 +30,10 @@ machine todoList {
 
   state parent {}
 }
+
+machine sender {
+  initial state active {
+    remove => send(list, removed, self) => send(parent, gone, parent) => active
+    rename => send(list, renamed, event.data) => send(list, touched, context.id) => active
+  }
+}

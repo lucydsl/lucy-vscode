@@ -374,6 +374,15 @@
 					"name": "variable.language.lucy"
 				},
 				{
+					"comment": "The data of a send: send(parent, removed, self).",
+					"match": "(?<=,)\\s*(self|parent)\\b",
+					"captures": {
+						"1": {
+							"name": "variable.language.lucy"
+						}
+					}
+				},
+				{
 					"include": "#spawn-values"
 				},
 				{
