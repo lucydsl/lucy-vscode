@@ -37,3 +37,11 @@ machine sender {
     rename => send(list, renamed, event.data) => send(list, touched, context.id) => active
   }
 }
+
+machine keeper {
+  initial state ready {
+    add => append(todos, spawn(todoItem) { title = event.data }) => ready
+    removedTodo => remove(todos, event.data) => ready
+    remove => ready
+  }
+}

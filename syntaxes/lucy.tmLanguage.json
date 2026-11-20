@@ -342,7 +342,7 @@
 			
 			"patterns": [
 				{
-					"begin": "\\b(action|guard|assign|spawn|send|on)(?=\\()",
+					"begin": "\\b(action|guard|assign|append|remove|spawn|send|on)(?=\\()",
 					"end": "(?<=\\))",
 					"beginCaptures": {
 						"1": {

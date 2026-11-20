@@ -4,6 +4,10 @@ All notable changes to the "lucy-language" extension will be documented in this 
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## 0.4.0
+
+- Highlight `append(key, spawn(...))` and `remove(key, value)`.
+
 ## 0.3.1
 
 - Highlight the data of a send: `send(parent, removed, self)`.
